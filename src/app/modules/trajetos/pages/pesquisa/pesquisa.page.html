@@ -1,0 +1,18 @@
+<page-header [pageName]="'Mapa'" [backButton]="true"></page-header>
+
+<ion-content>
+    <map 
+        [state]="pesquisaState.featureState"
+        (onMapMoves)="onMapMoves($event)"
+        (onLocationRequest)="locationRequestControl.next()"
+        [config]="{ layersControlPosition: 'bottomleft', requestUserLocation: true }"></map>
+
+    <route-panel
+        [state]="pesquisaState.routePanelState"
+        [resultListShowControl]="resultListShowControl"
+        [locationRequest]="locationRequestControl"></route-panel>
+
+    <div class="bottom_panel">
+        <ion-button (click)="onClickBtnPesquisar()" *ngIf="pesquisaState.isPesquisaReady()">Pesquisar</ion-button>
+    </div>
+</ion-content>

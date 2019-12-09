@@ -1,0 +1,20 @@
+ion-content > ion-card {
+    height: calc(100% - 20px);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.list_bottom {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.list_container {
+    overflow-y: auto;
+    flex: 1;
+}
+.list_container::-webkit-scrollbar {
+    display: none;
+}

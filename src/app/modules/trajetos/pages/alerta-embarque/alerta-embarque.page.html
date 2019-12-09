@@ -1,0 +1,18 @@
+<page-header pageName="Alerta" [backButton]="true"></page-header>
+
+<ion-content>
+
+    <alerta-form [embarques]="embarqueStateASerDefinido.percursos()"
+        (alertaConfirmado)="onAlertaConfirmado($event)"
+        *ngIf="!isAnyAlarmeDefinido() && isAnyAlertaAserDefinido()"></alerta-form>
+
+    <ng-container *ngIf="isAnyAlarmeDefinido()">
+        <alarme [alarme]="currentAlarme"></alarme>
+
+        <div class="bottom_container">
+            <ion-button (click)="onClickBtnInterromperAlarme()"
+                expand="block" *ngIf="isAnyAlarmeAtivo()">Interromper</ion-button>
+        </div>
+    </ng-container>
+
+</ion-content>

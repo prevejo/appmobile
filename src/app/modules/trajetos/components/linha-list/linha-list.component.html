@@ -1,0 +1,19 @@
+<div class="container_list">
+    <div class="container_list_content">
+        <ion-list>
+            <ion-item *ngFor="let linha of linhas" (click)="onLinhaSelecionada.emit(linha)" button>
+                <ion-row>
+                    <ion-col size="auto">
+                        <span class="linha_numero">{{linha.numero}}</span>
+                    </ion-col>
+                    <ion-col>
+                        <span class="linha_descricao">{{linha.descricao}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div class="container_list_bottom">
+        <span>{{ linhas.length }} linha(s)</span>
+    </div>
+</div>

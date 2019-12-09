@@ -1,0 +1,77 @@
+<ion-card class="embarques_a_definir_card" *ngIf="embarquesMap.size">
+    <ion-card-header>
+        <ion-card-title>Embarques:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-list *ngFor="let embarque of embarquesMap | keyvalue">
+            <ion-item>
+                <ion-icon name="bus" slot="start">{{ embarque.key }}</ion-icon>
+                <ion-label>{{ percursosList(embarque.value) }}</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card-content>
+</ion-card>
+
+<ion-card class="tipo_alerta_card">
+    <ion-card-header style="padding-bottom: 0;">
+        <ion-card-title>Alertar quando o veículo estiver:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="padding-left: 0; padding-bottom: 0;">
+        <ion-list>
+            <ion-radio-group [(ngModel)]="tipo">
+                <ion-item>
+                    <ion-icon name="alarm" slot="start"></ion-icon>
+                    <ion-label>à determinado tempo do embarque</ion-label>
+                    <ion-radio slot="end" value="TEMPO"></ion-radio>
+                </ion-item>
+            
+                <ion-item>
+                    <ion-icon name="code-working" slot="start"></ion-icon>
+                    <ion-label>à determinada distância do embarque</ion-label>
+                    <ion-radio slot="end" value="DISTANCIA"></ion-radio>
+                </ion-item>
+            </ion-radio-group>
+        </ion-list>
+    </ion-card-content>
+</ion-card>
+
+<ion-card class="input_card" *ngIf="tipo == 'TEMPO'">
+    <ion-item>
+        <ion-icon name="alarm" slot="start"></ion-icon>
+        <ion-label>Minutos:</ion-label>
+        <ion-input type="number" [(ngModel)]="tempo.value" min="{{ tempo.min }}" max="{{ tempo.max }}" slot="end" 
+            (ionBlur)="onInputBlur($event, tempo.value)"></ion-input>
+    </ion-item>
+
+    <ion-card-content>
+        <ion-item>
+            <ion-range [(ngModel)]="tempo.value" min="{{ tempo.min }}" max="{{ tempo.max }}" color="primary">
+                <ion-label slot="start">{{ tempo.min }} min</ion-label>
+                <ion-label slot="end">{{ tempo.max }} min</ion-label>
+            </ion-range>
+        </ion-item>
+    </ion-card-content>
+</ion-card>
+
+
+<ion-card class="input_card" *ngIf="tipo == 'DISTANCIA'">
+    <ion-item>
+        <ion-icon name="code-working" slot="start"></ion-icon>
+        <ion-label>Distância:</ion-label>
+        <ion-input type="number" [(ngModel)]="distancia.value" min="{{ distancia.min }}" max="{{ distancia.max }}" slot="end" 
+            (ionBlur)="onInputBlur($event, distancia.value)"></ion-input>
+    </ion-item>
+
+    <ion-card-content>
+        <ion-item>
+            <ion-range [(ngModel)]="distancia.value" min="{{ distancia.min }}" max="{{ distancia.max }}" color="primary">
+                <ion-label slot="start">{{ distancia.min }} km</ion-label>
+                <ion-label slot="end">{{ distancia.max }} km</ion-label>
+            </ion-range>
+        </ion-item>
+    </ion-card-content>
+</ion-card>
+
+<div class="container_btn_definir">
+    <ion-button expand="block" (click)="onClickBtnDefinir()">Definir</ion-button>
+</div>

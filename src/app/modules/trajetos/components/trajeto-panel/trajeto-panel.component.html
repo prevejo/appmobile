@@ -1,0 +1,43 @@
+<ion-card>
+    <ion-card-content>
+        
+        <ion-label class="group_label">Linhas</ion-label>
+
+        <div class="item_card" *ngFor="let percurso of percursos">
+            <div class="item_card_icon btn container_traco_button">
+                <ion-button (click)="onPercursoSelected.emit({type: 'focus', percurso: percurso.percurso})">
+                    <span class="linha_icon" [style.backgroundColor]="percurso.color"></span>
+                </ion-button>
+            </div>
+            <div class="item_card_label btn">
+                <ion-button (click)="onPercursoSelected.emit({type: 'detail', percurso: percurso.percurso})">
+                    {{ percurso.percurso.linha.numero }}
+                </ion-button>
+            </div>
+            <div class="item_card_label btn container_change_button">
+                <ion-button (click)="changeTrecho(percurso.trecho)" [disabled]="!percurso.canBeChanged" 
+                    title="Troca percurso" class="change_trecho_button">
+                    <ion-icon slot="icon-only" name="swap"></ion-icon>
+                </ion-button>
+            </div>
+        </div>
+
+        <ion-label class="group_label">Pontos</ion-label>
+
+        <div class="item_card" *ngFor="let ponto of pontos">
+            <div class="item_card_icon btn">
+                <ion-button (click)="onParadaSelected.emit({type: 'focus', parada: ponto.parada})">
+                    <span class="ponto_icon" [style.backgroundColor]="ponto.color"></span>
+                </ion-button>
+            </div>
+            <div class="item_card_label btn">
+                <ion-button (click)="onParadaSelected.emit({type: 'detail', parada: ponto.parada})">
+                    {{ ponto.parada.cod }}
+                </ion-button>
+            </div>
+        </div>
+
+        <ion-button (click)="preverEmbarqueClick.emit($event)" class="btn_prever_embarque">Prever Embarque</ion-button>
+
+    </ion-card-content>
+</ion-card>

@@ -1,0 +1,25 @@
+<ion-card>
+    <ion-card-header>
+        <ion-card-subtitle>Inserir comentário</ion-card-subtitle>
+        <ion-card-title>
+
+            <ion-input minlength="2" maxlength="20" placeholder="Assunto"
+                [(ngModel)]="novoComentario.assunto" [disabled]="comentarioAdicionado != null || disabled"></ion-input>
+            
+        </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+        <ion-textarea minlength="2" maxlength="4000" rows="6" cols="20" placeholder="Comentário..."
+            [disabled]="comentarioAdicionado != null || disabled" [(ngModel)]="novoComentario.comentario"></ion-textarea>
+
+        <div class="container_btn_adicionar">
+            <ion-button (click)="onClickBtnAdicionar($event)" [disabled]="disabled" *ngIf="comentarioAdicionado == null; else novo">Adicionar</ion-button>
+
+            <ng-template #novo>
+                <ion-button (click)="onClickBtnNovo($event)" [disabled]="disabled">Novo</ion-button>
+            </ng-template>
+        </div>
+
+    </ion-card-content>
+</ion-card>

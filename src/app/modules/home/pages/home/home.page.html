@@ -1,0 +1,47 @@
+<page-header [pageName]="'Início'"></page-header>
+
+<ion-content>
+
+    <div class="page_inner_container">
+        <div>
+            <home-card>
+                <home-card-title>Trajetos</home-card-title>
+                <home-card-subtitle>saiba como chegar ao seu destino</home-card-subtitle>
+
+                <home-card-content>
+                    <ion-button [routerLink]="['/trajetos']">Acessar</ion-button>
+                </home-card-content>
+            </home-card>
+
+
+            <home-card>
+                <home-card-title>Comunidade</home-card-title>
+                <home-card-subtitle>compartilhe o que acha do serviço</home-card-subtitle>
+
+                <home-card-content>
+                    <ion-button [routerLink]="['/comunidade']">Acessar</ion-button>
+                </home-card-content>
+            </home-card>
+
+
+            <home-card>
+                <home-card-title>Notícias</home-card-title>
+                <home-card-subtitle>fique informado sobre mudanças e imprevistos</home-card-subtitle>
+
+                <home-card-content>
+                    <ion-button [routerLink]="['/noticias']">Acessar</ion-button>
+                </home-card-content>
+            </home-card>
+        </div>
+
+
+        <div class="page_inner_container_bottom" *ngIf="!isCordovaPlatform()">
+            <div class="table_container">
+                <div class="app_button_container">
+                    <app-button link="http://prevejo.tk/static/outputs/debug/app-debug.apk"></app-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

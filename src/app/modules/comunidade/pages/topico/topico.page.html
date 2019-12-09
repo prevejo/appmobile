@@ -1,0 +1,49 @@
+<page-header pageName="Tópico" [backButton]="true"></page-header>
+
+<ion-content>
+    <ng-container *ngIf="(topico$ | async) as topico">
+
+        <div class="container_topico_header">
+            <p class="topico_header">{{topico.titulo}}</p>
+        </div>
+
+        <ion-card class="topico_card">
+            <ng-container *ngIf="(model$ | async) as model">
+                <ion-card-header>
+
+                    <div class="header_container">
+                        <div class="container_topico_label">
+                            <ion-label>{{topico.titulo}}</ion-label>
+                        </div>
+                        <div class="container_search_bar">
+                            <ion-searchbar class="search_bar"
+                                [(ngModel)]="model.searchValue"
+                                placeholder="Filtrar" 
+                                debounce="250"
+                                (ionInput)="model.onInput($event)"
+                                searchIcon="{{ (model.loadIndicator | async) ? 'refresh' : 'search' }}">
+                            </ion-searchbar>
+                        </div>
+                    </div>
+
+                </ion-card-header>
+                <ion-card-content>
+                    <ng-container *ngIf="(model.results$ | async) as comentarios; else empty">
+                        <comentario-list [comentarios]="comentarios" [expandable]="true"
+                            *ngIf="comentarios.length; else empty"></comentario-list>
+                    </ng-container>
+
+                    <ng-template #empty>
+                        <p class="empty_msg_comentarios">Nenhum comentário</p>
+                    </ng-template>
+                </ion-card-content>
+            </ng-container>
+        </ion-card>
+
+        <div class="container_comentario_form">
+            <comentario-form [topico]="topico" [(comentarioAdicionado)]="comentarioAdicionado"
+                (confirmationEvent)="onComentarioConfirmado($event)" [disabled]="comentarioFormDisabled"></comentario-form>
+        </div>
+        
+    </ng-container>
+</ion-content>

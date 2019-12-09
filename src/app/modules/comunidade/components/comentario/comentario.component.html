@@ -1,0 +1,12 @@
+<div class="header">
+    <div class="container_assunto">
+        <span class="assunto_label">Assunto: </span>{{comentario.assunto}}
+    </div>
+    <div>
+        <relevancia-badge [comentario]="comentario"></relevancia-badge>
+    </div>
+</div>
+<div class="container_comentario">{{comentario.comentario}}</div>
+<div class="container_data">
+    {{comentario.dtPublicacao | toDate | date: 'dd/MM/yy HH:mm'}}
+</div>

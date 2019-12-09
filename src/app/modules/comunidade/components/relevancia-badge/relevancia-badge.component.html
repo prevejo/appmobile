@@ -1,0 +1,6 @@
+<ion-badge class="badge_relevancia" (click)="onClick($event)"
+    [ngClass]="{'disabled': disabled, 'loading': loading}" color="primary">
+
+    <ion-icon name="{{ loading ? 'refresh' : 'arrow-dropup' }}"></ion-icon>
+    <span>{{comentario.relevancia}}</span>
+</ion-badge>

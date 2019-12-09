@@ -1,0 +1,35 @@
+<ion-card>
+    <ion-card-content>
+
+        <ng-container *ngIf="(embarqueState | async) as state; else noState">
+            <div class="loading_panel" ng-class="{'loading': state.isLoading()}">
+                <span>Loading</span>
+            </div>
+
+            <ng-container *ngIf="(embarquesList$ | async) as embarqueList; else empty">
+                <ng-container *ngIf="embarqueList.embarques.length; else empty">
+
+                    <embarque-list [embarqueList]="embarqueList"></embarque-list>
+                    
+                </ng-container>
+            </ng-container>
+
+            <ng-template #empty>
+                <p class="empty_msg">Nenhuma previsao no momento</p>
+            </ng-template>
+
+        </ng-container>
+
+        <ng-template #noState></ng-template>
+
+        <div class="bottom_container" style="text-align: center">
+            <div class="back_button_container">
+                <ion-button class="back_button" (click)="onClickBtnVoltar($event)" size="small">Voltar</ion-button>
+            </div>
+            <div class="alerta_button_container">
+                <ion-button class="alerta_button" (click)="onClickBtnAlerta($event)" size="small">Definir alerta</ion-button>
+            </div>
+        </div>
+        
+    </ion-card-content>
+</ion-card>

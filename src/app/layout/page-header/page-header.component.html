@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            {{ pageName }}
+        </ion-title>
+
+        <ion-buttons slot="end">
+            <div class="notifications_container">
+                <ion-button *ngFor="let notif of notificationService.notifications" class="notification_button"
+                    (click)="notif.clickCallback()"
+                    [ngClass]="{'hightligth': notif.isHightLigthing()}">
+                    <ion-icon slot="icon-only" name="{{ notif.iconName }}"></ion-icon>
+                </ion-button>
+            </div>
+
+            <ng-container *ngIf="canGoBack()">
+                <ion-back-button defaultHref="home"></ion-back-button>
+            </ng-container>
+        </ion-buttons>
+    </ion-toolbar>
+
+    <div style="position: absolute; bottom: 0; left: 0; width: 100%;">
+        <loadbar [loading]="loadService.isLoading()"></loadbar>
+    </div>
+</ion-header>

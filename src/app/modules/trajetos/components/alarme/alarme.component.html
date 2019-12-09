@@ -1,0 +1,32 @@
+<ng-container *ngIf="(embarquesEminentes$ | async) as embarquesList">
+    <ion-card class="eminentes_card" *ngIf="embarquesList.embarques.length">
+        <ion-card-header>
+            <ion-card-title>Embaques eminentes</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+
+            <embarque-list [embarqueList]="embarquesList"></embarque-list>
+
+        </ion-card-content>
+    </ion-card>
+</ng-container>
+
+<ion-card class="map_card">
+    <ion-card-header>
+        <ion-card-title>Alerta definido:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <map [state]="featureState" [config]="mapConfig"></map>
+    </ion-card-content>
+</ion-card>
+
+<ion-card class="metrica_card">
+    
+    <ion-range [(ngModel)]="rangeControl.value"
+        min="{{ rangeControl.min }}" max="{{ rangeControl.max }}"
+        color="primary">
+        <ion-label slot="start">{{ rangeControl.min }} {{ rangeControl.desc }}</ion-label>
+        <ion-label slot="end">{{ rangeControl.max }} {{ rangeControl.desc }}</ion-label>
+    </ion-range>
+
+</ion-card>

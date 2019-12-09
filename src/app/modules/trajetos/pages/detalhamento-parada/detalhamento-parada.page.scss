@@ -1,0 +1,47 @@
+.page_container {
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #ddd;
+    padding-bottom: 10px;
+}
+
+.container_header {
+    display: flex;
+    line-height: 60px;
+}
+.container_header > div:first-child {
+    flex: 1;
+    text-align: center;
+}
+.title {
+    font-weight: bold;
+    color: rgb(115, 115, 115);
+}
+.card_parada {
+    display: inline-block;
+    background: white;
+    border-radius: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 30px;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    color: rgb(115, 115, 115);
+}
+
+.container_content {
+    flex: 1;
+}
+
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    .title {
+        font-size: 18px;
+    }
+    .card_parada {
+        font-size: 18px;
+    }
+}

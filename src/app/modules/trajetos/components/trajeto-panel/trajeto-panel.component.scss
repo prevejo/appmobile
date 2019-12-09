@@ -1,0 +1,121 @@
+ion-card-content {
+    background-color: #eee;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.group_label {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.item_card {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    margin-bottom: 10px;
+    line-height: 23px;
+    min-width: 150px;
+}
+.item_card_label {
+    font-size: 13px;
+    flex: 1;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.item_card_icon {
+    flex: 1;
+    text-align: center;
+    padding-left: 5px;
+}
+
+.linha_icon {
+    display: inline-block;
+    height: 2px;
+    width: 60%;
+    background-color: green;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+
+.ponto_icon {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    vertical-align: middle;
+    background-color: purple;
+    position: relative;
+    top: -2px;
+}
+
+
+.item_card_label.btn {
+    display: flex;
+    padding-right: 0;
+}
+.item_card_icon.btn {
+    display: flex;
+    padding-left: 0;
+}
+.item_card_label > ion-button,
+.item_card_icon > ion-button {
+    --background: transparent;
+    --box-shadow: none;
+    margin: 0;
+    color: #737373;
+    font-size: inherit;
+    --padding-start: 0;
+    --padding-end: 0;
+    height: 28px;
+    flex: 1;
+    --border-radius: none;
+    --background-hover: rgba(0, 0, 0, 0.1);
+    --background-focus: rgba(0, 0, 0, 0.1);
+}
+
+.container_change_button {
+    flex: unset;
+    min-width: 40px;
+}
+.container_change_button ion-button {
+    font-size: 12px;
+}
+.container_traco_button {
+    min-width: 45px;
+    flex: unset;
+}
+
+.btn_prever_embarque {
+    font-size: 12px;
+}
+
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    ion-card-content {
+        min-width: 220px;
+    }
+    .group_label {
+        font-size: 16px;
+    }
+    .item_card_label {
+        font-size: 15px;
+    }
+    .item_card_label > ion-button,
+    .item_card_icon > ion-button {
+        height: 33px;
+    }
+    .ion-card-content {
+        min-width: 220px;
+    }
+    .btn_prever_embarque {
+        display: block;
+        font-size: 13px;
+        margin-top: 14px;
+    }
+}

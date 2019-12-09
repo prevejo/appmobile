@@ -1,0 +1,9 @@
+<ion-searchbar
+    [(ngModel)]="value"
+    placeholder="{{ placeHolder }}" 
+    autocomplete="on"
+    debounce="250"
+    (ionInput)="onInput($event)"
+    searchIcon="{{ (loadIndicator | async) ? 'refresh' : 'search' }}"
+    (ionFocus)="onFocus.emit($event)">
+</ion-searchbar>

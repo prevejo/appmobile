@@ -1,0 +1,28 @@
+<ion-card>
+    <ion-card-content>
+        <ion-label class="group_label">Sentido</ion-label>
+
+        <div class="container_sentido">
+            <div (click)="onClickSentido(sentidos[0])">
+                <span>{{ sentidos[0] | toUpperFirst }}</span>
+            </div>
+            <div>
+                <ion-toggle [(ngModel)]="toggle" [disabled]="sentidos.length == 1"
+                    (ionChange)="onToggleSentidoChange($event)"></ion-toggle>
+            </div>
+            <div (click)="onClickSentido(sentidos[1])" *ngIf="sentidos.length > 1">
+                <span>{{ sentidos[1] | toUpperFirst }}</span>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <ion-list>
+            <ion-item *ngFor="let option of options" (click)="onOptionClick(option)" button>
+                <ion-label>{{ option.name }}</ion-label>
+                <ion-checkbox slot="end" [ngModel]="option.isSelected()"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+
+    </ion-card-content>
+</ion-card>

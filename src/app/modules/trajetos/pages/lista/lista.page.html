@@ -1,0 +1,20 @@
+<page-header [pageName]="'Trajetos'" [backButton]="true"></page-header>
+
+<ion-content>
+    <ion-card *ngIf="(trajetos$ | async) as trajetosList">
+        <div class="list_container">
+            <ion-list>
+                <item-trajeto *ngFor="let trajeto of trajetosList"
+                    [trajeto]="trajeto"
+                    (onItemSelected)="onTrajetoSelecionado($event)">
+                    <ion-label>Trajeto</ion-label>
+                </item-trajeto>
+            </ion-list>
+        </div>
+
+        <div class="list_bottom">
+            <span *ngIf="trajetosList.length == 1">1 trajeto</span>
+            <span *ngIf="trajetosList.length > 1">{{ trajetosList.length }} trajetos</span>
+        </div>
+    </ion-card>
+</ion-content>

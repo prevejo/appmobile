@@ -1,0 +1,22 @@
+<page-header pageName="Comunidade" [backButton]="true"></page-header>
+
+<ion-content>
+
+    <p class="topicos_header">Tópicos</p>
+
+    <ng-container *ngIf="topicos$ | async as topicos">
+        <topico-list [topicos]="topicos" (clickEvent)="onTopicoSelecionado($event)" *ngIf="topicos.length; else empty"></topico-list>
+
+        <ng-template #empty>
+            <ion-card>
+                <ion-card-content style="text-align: center; background-color: #f1f1f1;">
+                    <div>
+                        <ion-icon style="font-size: 20px;" name="hammer"></ion-icon>
+                    </div>
+                    <p style="font-size: 18px;">Nenhum tópico registrado</p>
+                </ion-card-content>
+            </ion-card>
+        </ng-template>
+    </ng-container>
+
+</ion-content>

@@ -1,0 +1,23 @@
+<page-header pageName="{{total != null ? 'Caixa de entrada (' + total + ')' : 'Caixa de entrada'}}" [backButton]="true"></page-header>
+
+<ion-content>
+
+    <ng-container *ngIf="noticias$ | async as noticias">
+        <news-list [news]="noticias"
+            (removeEvent)="onRemocaoSolicitada($event)"
+            (clickEvent)="onNoticiaSelecionada($event)"
+            *ngIf="noticias.length; else empty"></news-list>
+
+        <ng-template #empty>
+            <ion-card>
+                <ion-card-content style="text-align: center; background-color: #f1f1f1;">
+                    <div>
+                        <ion-icon style="font-size: 20px;" name="mail-open"></ion-icon>
+                    </div>
+                    <p style="font-size: 18px;">Caixa vazia</p>
+                </ion-card-content>
+            </ion-card>
+        </ng-template>
+    </ng-container>
+
+</ion-content>

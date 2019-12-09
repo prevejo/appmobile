@@ -1,0 +1,13 @@
+<ion-list>
+    <ion-item *ngFor="let comentario of comentarios" (click)="onClickComentario(comentario)" button="{{expandable}}">
+        <div class="comentario_container_short" *ngIf="!isExpanded(comentario); else expanded">
+            {{ comentario.assunto }} - {{ comentario.comentario }}
+        </div>
+
+        <ng-template #expanded>
+            <div class="comentario_container_expanded">
+                <comentario [comentario]="comentario"></comentario>
+            </div>
+        </ng-template>
+    </ion-item>
+</ion-list>

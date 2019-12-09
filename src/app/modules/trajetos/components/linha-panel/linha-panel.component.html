@@ -1,0 +1,47 @@
+<ion-card>
+    <ion-card-content>
+
+        <ion-label class="label_linha">Linha {{ operacao.linha.numero }}</ion-label>
+
+        <ion-label class="label_descricao">{{ operacao.linha.descricao }}</ion-label>
+
+        <div class="item_card">
+            <div class="item_card_side left">
+                <ion-label>Tarifa:</ion-label>
+            </div>
+            <div class="item_card_side right">
+                <ion-label>R$ {{ operacao.linha.tarifa | number:'1.2-2' }}</ion-label>
+            </div>
+        </div>
+
+        <div class="item_card">
+            <div class="item_card_side left">
+                <ion-label>Percurso:</ion-label>
+            </div>
+            <div class="item_card_side right">
+                <ion-label>{{ operacao.extensao / 1000 | number:'1.1-1' }} km</ion-label>
+            </div>
+        </div>
+
+        <div class="item_card" *ngIf="operadores.length">
+            <div class="item_card_side left">
+                <ion-label>Operador:</ion-label>
+            </div>
+            <div class="item_card_side right">
+                <ion-label style="display: block;" *ngFor="let operador of operadores">{{operador.descricaoShort}}</ion-label>
+            </div>
+        </div>
+
+        <div class="container_button" style="display: flex;">
+            <div class="inner" style="text-align: left;">
+                <ion-button (click)="onClickBtnHorarios.emit($event)" [disabled]="!operacao.gruposHorarios.length">
+                    {{operacao.gruposHorarios.length ? 'Horários' : 'Sem partidas'}}
+                </ion-button>
+            </div>
+            <div class="inner" style="text-align: right;">
+                <ion-button (click)="onClickBtnVeiculos.emit($event)">Veiculos</ion-button>
+            </div>
+        </div>
+
+    </ion-card-content>
+</ion-card>

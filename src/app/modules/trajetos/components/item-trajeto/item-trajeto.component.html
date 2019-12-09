@@ -1,0 +1,27 @@
+<ion-item (click)="onItemSelected.emit(trajeto)" button>
+    
+    <ion-label>
+        <div class="container_trecho">
+
+            <div class="container_ligacao">
+                <div class="ligacao" *ngFor="let ponto of pontos">
+                    <span></span>
+                </div>
+            </div>
+            
+            <div class="container_pontos">
+                <div class="ponto" *ngFor="let ponto of pontos">
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="container_linha">
+                <div class="linha" *ngFor="let linha of linhas">
+                    <span>{{ linha }}</span>
+                </div>
+            </div>
+
+        </div>
+    </ion-label>
+
+</ion-item>

@@ -1,0 +1,38 @@
+<page-header pageName="" [backButton]="true"></page-header>
+
+<ion-content>
+
+    <ion-card *ngIf="noticia$ | async as noticia">
+        <ion-card-header>
+            <ion-card-subtitle>{{ noticia.dtPublicacao | toDate | date: 'dd/MM/yyyy HH:mm' }}</ion-card-subtitle>
+            <ion-card-title>{{ noticia.titulo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <div>
+                <p class="resumo">{{ noticia.resumo }}</p>
+            </div>
+            <div style="display: flex;">
+                <div class="center_fonte">
+                    <span>Fonte: {{ noticia.endereco }}</span>
+                </div>
+                <div class="container_option_list">
+                    <ion-list class="option_list">
+                        <ion-item class="option_item" href="{{noticia.endereco}}" color="primary" button>
+                            <ion-icon name="open"></ion-icon>
+                            <ion-label>Acessar</ion-label>
+                        </ion-item>
+                        <ion-item color="primary" (click)="onClickBtnRemover()" button>
+                            <ion-icon name="trash"></ion-icon>
+                            <ion-label>Remover</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+
+            <div class="bottom_fonte">
+                <span>Fonte: {{ noticia.endereco }}</span>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

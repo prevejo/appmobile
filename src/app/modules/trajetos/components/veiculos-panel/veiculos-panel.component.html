@@ -1,0 +1,19 @@
+<ion-card>
+    <ion-card-content>
+        <veiculos-list [veiculosList]="veiculosList" *ngIf="(veiculosList$ | async) as veiculosList"></veiculos-list>
+
+        <div class="bottom_container" style="text-align: right">
+            <div class="partidas_container">
+                <div class="item_card">
+                    <ion-label *ngIf="(veiculosList$ | async) as veiculosList; else nenhum"><span style="font-weight: bold">{{veiculosList.veiculos.length}}</span> veículos(s)</ion-label>
+                    <ng-template #nenhum>
+                        <ion-label></ion-label>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="back_button_container">
+                <ion-button class="back_button" (click)="btnVoltarClick.emit($event)" size="small">Voltar</ion-button>
+            </div>
+        </div>
+    </ion-card-content>
+</ion-card>

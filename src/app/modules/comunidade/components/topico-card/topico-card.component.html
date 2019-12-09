@@ -1,0 +1,18 @@
+<ion-card button="true" (click)="clickEvent.emit($event)">
+    <ion-card-header>
+        <ion-card-title>{{ topico.topico.titulo }}
+
+            <span class="last_coment_time" *ngIf="topico.ultimosComentarios.length">à {{topico.ultimosComentarios[0].dtPublicacao | toDate | shortPastTime}}</span>
+        </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+        <comentario-list [comentarios]="topico.ultimosComentarios" [expandable]="false"
+            *ngIf="topico.ultimosComentarios.length > 0; else empty"></comentario-list>
+
+        <ng-template #empty>
+            <p>Nenhum comentário registrado</p>
+        </ng-template>
+
+    </ion-card-content>
+</ion-card>

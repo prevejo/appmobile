@@ -1,0 +1,52 @@
+<ion-card>
+    <ion-card-content>
+
+        <div class="header_container">
+            <div>
+                <ion-button class="arrow_button" (click)="previousGrupo()" [disabled]="!canPrevious()">
+                    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+                </ion-button>
+            </div>
+            <div class="header_title">
+                <ion-label class="label_linha">{{ grupo?.operacao.descricao }}</ion-label>
+            </div>
+            <div>
+                <ion-button class="arrow_button" (click)="nextGrupo()" [disabled]="!canNext()">
+                    <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+                </ion-button>
+            </div>
+        </div>
+
+        <ion-grid class="table_grid_horarios">
+            <ion-row class="table_header_row">
+                <ion-col>Operadora</ion-col>
+                <ion-col>Origem</ion-col>
+                <ion-col>Horário</ion-col>
+            </ion-row>
+
+            <ion-row class="table_body_row" *ngFor="let partida of grupo?.partidas">
+                <ion-col>
+                    {{ partida.operador.descricaoShort }}
+                </ion-col>
+                <ion-col>
+                    {{ operacao.origem }}
+                </ion-col>
+                <ion-col>
+                    {{ partida.horario }}
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <div class="bottom_container" style="text-align: right">
+            <div class="partidas_container">
+                <div class="item_card">
+                    <ion-label><span style="font-weight: bold">{{grupo?.partidas.length}}</span> partida(s)</ion-label>
+                </div>
+            </div>
+            <div class="back_button_container">
+                <ion-button class="back_button" (click)="onClickBtnVoltar.emit($event)" size="small">Voltar</ion-button>
+            </div>
+        </div>
+
+    </ion-card-content>
+</ion-card>

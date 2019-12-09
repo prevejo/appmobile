@@ -1,0 +1,16 @@
+ion-card {
+    background: white;
+}
+.last_coment_time {
+    float: right;
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+    ion-card-content {
+        padding-left: 15px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+    }
+}

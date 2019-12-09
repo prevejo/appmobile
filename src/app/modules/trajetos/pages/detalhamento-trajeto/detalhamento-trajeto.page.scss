@@ -1,0 +1,34 @@
+ion-content {
+    position: relative;
+}
+
+map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.bottom_panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.2s;
+}
+.bottom_panel.disabled {
+    transform: translateX(-100%);
+}
+
+.bottom_panel_close {
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+    top: 15px;
+}
+.bottom_panel_close > ion-button {
+    font-size: 11px;
+    margin: 0;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}

@@ -1,0 +1,25 @@
+<search-bar
+    [(value)]="searchBarValue"
+    [results]="items"
+    (onFocus)="onSearchBarFocus($event)"
+    [placeHolder]="state.isStartLocationDefined() ? 'Para onde deseja ir?' : 'Defina o local de origem'"></search-bar>
+
+<ion-card>
+    <ion-item *ngIf="state.isStartLocationDefined()" (click)="onClickStartLocation()" button>
+        <ion-icon name="arrow-dropright"></ion-icon>
+        <ion-label>Origem: {{ state.getStartLocation().getDescription() }}</ion-label>
+
+        <ion-icon name="md-close" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item *ngIf="state.isEndLocationdefined()" (click)="onClickEndLocation()" button>
+        <ion-icon name="arrow-dropright"></ion-icon>
+        <ion-label>Destino: {{ state.getEndLocation().getDescription() }}</ion-label>
+
+        <ion-icon name="md-close" slot="end"></ion-icon>
+    </ion-item>
+    
+    <result-list
+        [items]="itemsObservable"
+        (onItemSelected)="onItemSelecionado($event)"
+        [hidden]="(itemsObservable | async).length == 0 || !(resultListShowControl | async)"></result-list>
+</ion-card>

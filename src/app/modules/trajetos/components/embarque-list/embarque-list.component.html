@@ -1,0 +1,32 @@
+<ion-grid class="table_grid">
+    <ion-row class="table_header_row">
+        <ion-col>Veiculo</ion-col>
+        <ion-col>Linha</ion-col>
+        <ion-col>Distancia</ion-col>
+        <ion-col>Restante</ion-col>
+        <ion-col>Hora</ion-col>
+    </ion-row>
+    
+    <ion-row class="table_body_row" 
+        (click)="embarqueList.selecionarEmbarque(emb)"
+        [ngClass]="{'selected': embarqueList.isSelecionado(emb)}"
+        *ngFor="let emb of embarqueList.embarques">
+
+        <ion-col [style.color]="emb.color">
+            {{ emb.embarque.veiculo.numero }}
+        </ion-col>
+        <ion-col>
+            {{ emb.embarque.percurso.linha.numero }}
+        </ion-col>
+        <ion-col>
+            {{ emb.embarque.distanciaRestante / 1000 | number: '1.0-2' }}km
+        </ion-col>
+        <ion-col>
+            {{ emb.embarque.tempoRestante < 1 ? '< 1' : (emb.embarque.tempoRestante | number: '1.0-0') }}min
+        </ion-col>
+        <ion-col>
+            {{ emb.embarque.horaPrevista | date: 'HH:mm' }}
+        </ion-col>
+    </ion-row>
+
+</ion-grid>

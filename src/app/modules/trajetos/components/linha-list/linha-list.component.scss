@@ -1,0 +1,60 @@
+
+.container_list {
+    height: 100%;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+.container_list_content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    background: white;
+}
+.container_list_content::-webkit-scrollbar-track {
+	background-color: #F5F5F5;
+}
+.container_list_content::-webkit-scrollbar {
+	width: 5px;
+	background-color: #F5F5F5;
+}
+.container_list_content::-webkit-scrollbar-thumb {
+	background-color: #AAA;
+	border-radius: 5px;
+    background-image: rgba(0, 0, 0, .2);
+}
+.container_list_bottom {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    line-height: 30px;
+    font-size: 14px;
+    background-color: white;
+}
+.container_list_bottom > span {
+    color: rgb(115, 115, 115);
+}
+
+ion-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.linha_numero,
+.linha_descricao {
+    color: #333;
+    font-size: 13px;
+}
+
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    .linha_numero,
+    .linha_descricao {
+        font-size: 15px;
+    }
+    .container_list_bottom {
+        font-size: 16px;
+    }
+}

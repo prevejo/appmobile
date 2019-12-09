@@ -1,0 +1,85 @@
+ion-card-content {
+    background-color: #fff;
+    padding: 10px;
+    max-width: 270px;
+    min-width: 260px;
+}
+
+.label_linha {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.label_descricao {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
+
+.item_card {
+    display: flex;
+    background-color: #eaeaea;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    line-height: 23px;
+    min-width: 180px;
+    padding: 5px;
+    margin-top: 10px;
+}
+.item_card_side {
+    flex: 1;
+}
+.item_card_side.right {
+    text-align: right;
+    padding-right: 10px;
+}
+.item_card_side.left {
+    text-align: left;
+    padding-left: 10px;
+}
+.item_card_side ion-label {
+    font-size: 12px;
+}
+.item_card_side.left ion-label {
+    font-weight: bold;
+}
+
+.container_button {
+    display: flex;
+    text-align: center;
+    margin-top: 10px;
+}
+.container_button ion-button {
+    max-height: 30px;
+    font-size: 13px;
+    margin: 0;
+}
+.container_button .inner {
+    flex: 1;
+}
+
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    ion-card-content {
+        max-width: 350px;
+        min-width: 300px;
+    }
+    .label_linha {
+        font-size: 16px;
+    }
+    .label_descricao {
+        font-size: 14px;
+    }
+    .item_card_side ion-label {
+        font-size: 14px;
+    }
+    .container_button ion-button {
+        font-size: 14px;
+    }
+    .item_card {
+        margin-top: 20px;
+    }
+    .container_button {
+        margin-top: 20px;
+    }
+}

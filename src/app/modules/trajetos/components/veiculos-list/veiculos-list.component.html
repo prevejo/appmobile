@@ -1,0 +1,28 @@
+<ion-grid class="table_grid" *ngIf="veiculosList.veiculos.length; else empty">
+    <ion-row class="table_header_row">
+        <ion-col>Veiculo</ion-col>
+        <ion-col>Operador</ion-col>
+        <ion-col>Há</ion-col>
+    </ion-row>
+    
+    <ion-row class="table_body_row" 
+        (click)="veiculosList.selecionar(veiculo.instante)"
+        [ngClass]="{'selected': veiculosList.isSelecionado(veiculo.instante)}"
+        *ngFor="let veiculo of veiculos">
+
+        <ion-col [style.color]="veiculosList.findColor(veiculo.instante)">
+            {{ veiculo.numero }}
+        </ion-col>
+        <ion-col>
+            {{ veiculo.operadora }}
+        </ion-col>
+        <ion-col>
+            {{ veiculo.data | pastTime }}
+        </ion-col>
+    </ion-row>
+
+</ion-grid>
+
+<ng-template #empty>
+    <p class="empty_msg">Nenhum veículo no sentido selecionado</p>
+</ng-template>

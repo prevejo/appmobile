@@ -1,0 +1,83 @@
+ion-content {
+    --background: var(--page_background);
+}
+ion-card {
+    background: white;
+}
+
+.container_topico_header {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.container_topico_header p {
+    display: none;
+    font-size: 20px;
+    color: rgb(38, 38, 38);
+    text-align: center;
+    margin: 0;
+}
+
+
+ion-card.topico_card .container_topico_label {
+    padding-top: 18px;
+    padding-left: 10px;
+}
+ion-card.topico_card .container_topico_label ion-label {
+    font-size: 20px;
+    color: rgb(38, 38, 38);
+}
+ion-card.topico_card ion-card-header {
+    padding-bottom: 0;
+    padding-top: 10px;
+}
+ion-card.topico_card .header_container {
+    display: flex;
+}
+ion-card.topico_card .header_container .container_search_bar {
+    flex: 1;
+}
+ion-card.topico_card .search_bar {
+    max-width: 300px;
+    margin-left: auto;
+}
+ion-card.topico_card .empty_msg_comentarios {
+    padding-left: 10px;
+}
+@media only screen and (max-width: 600px) {
+    ion-card.topico_card .search_bar {
+        max-width: unset;
+    }
+    ion-card.topico_card .container_topico_label {
+        display: none;
+    }
+    ion-card.topico_card ion-card-content {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+    }
+    ion-card.topico_card .empty_msg_comentarios {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 0;
+    }
+    .container_topico_header p {
+        display: block;
+    }
+}
+
+
+.container_comentario_form {
+    margin-top: 30px;
+    display: block;
+    max-width: 700px;
+    margin-left: auto;
+}
+
+@media only screen and (min-width: 730px) {
+
+    .container_comentario_form {
+        margin-right: 30px;
+    }
+
+}

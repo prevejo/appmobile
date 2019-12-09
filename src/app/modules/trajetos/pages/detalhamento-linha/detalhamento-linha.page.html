@@ -1,0 +1,55 @@
+<page-header pageName="Linha {{ ((state$ | async)?.linha() | async)?.numero }}" [backButton]="true"></page-header>
+
+<ion-content>
+    
+    <map [state]="featureState" [config]="mapConfig"></map>
+
+    <div class="sentido_panel" [class.disabled]="false" *ngIf="((state$ | async)?.sentidos() | async) as sentidos">
+
+        <sentido-panel [(sentido)]="sentido"
+            [sentidos]="sentidos" [options]="linhaOptions"
+            (onSentidoChange)="onSentidoChange($event)"></sentido-panel>
+
+    </div>
+
+    <ng-container *ngIf="((state$ | async)?.operacao() | async) as operacao">
+        <div class="bottom_panel" [class.disabled]="!linhaButtonState.enabled">
+            <div style="position: relative">
+                <div class="bottom_panel_close">
+                    <ion-button (click)="retailPanel(linhaButtonState)">
+                        <ion-icon slot="icon-only" name="close"></ion-icon>
+                    </ion-button>
+                </div>
+
+                <linha-panel [operacao]="operacao"
+                    (onClickBtnVeiculos)="onClickBtnVeiculos()"
+                    (onClickBtnHorarios)="openPanel(horariosButtonState)"></linha-panel>
+            </div>
+        </div>
+
+        <div class="bottom_panel" [class.disabled]="!horariosButtonState.enabled" *ngIf="operacao.gruposHorarios.length">
+            <div style="position: relative">
+                <div class="bottom_panel_close">
+                    <ion-button (click)="retailPanel(horariosButtonState)">
+                        <ion-icon slot="icon-only" name="close"></ion-icon>
+                    </ion-button>
+                </div>
+
+                <horario-panel [operacao]="operacao" (onClickBtnVoltar)="openPanel(linhaButtonState)"></horario-panel>
+            </div>
+        </div>
+
+        <div class="bottom_panel" [class.disabled]="!veiculosButtonState.enabled">
+            <div style="position: relative">
+                <div class="bottom_panel_close">
+                    <ion-button (click)="retailPanel(veiculosButtonState)">
+                        <ion-icon slot="icon-only" name="close"></ion-icon>
+                    </ion-button>
+                </div>
+
+                <veiculos-panel [veiculosList$]="veiculos$" (btnVoltarClick)="openPanel(linhaButtonState); onClickBtnVoltarVeiculos();"></veiculos-panel>
+            </div>
+        </div>
+    </ng-container>
+
+</ion-content>

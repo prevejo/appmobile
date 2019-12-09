@@ -1,0 +1,22 @@
+ion-card {
+    background-color: white;
+}
+ion-card ion-card-title {
+    color: #777;
+}
+
+ion-card.unvisited {
+    background-color: #efefef;
+}
+ion-card.unvisited ion-card-title {
+    color: #262626;
+}
+
+.more_options_icon {
+    float: right;
+    font-size: 22px;
+    padding: 10px;
+    position: relative;
+    top: -10px;
+    right: -10px;
+}

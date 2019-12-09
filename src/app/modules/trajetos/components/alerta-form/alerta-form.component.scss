@@ -1,0 +1,41 @@
+ion-card {
+    margin-bottom: 20px;
+}
+
+ion-card.tipo_alerta_card ion-card-content {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+ion-card.tipo_alerta_card ion-list {
+    padding-bottom: 0;
+}
+
+ion-card.embarques_a_definir_card ion-card-header {
+    padding-bottom: 0;
+}
+ion-card.embarques_a_definir_card ion-card-content {
+    padding-left: 0;
+    padding-bottom: 0;
+}
+
+ion-radio-group .item .sc-ion-label-md-h {
+    white-space: unset;
+}
+
+ion-card.input_card ion-card-content {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+ion-range {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container_btn_definir {
+    text-align: center;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}

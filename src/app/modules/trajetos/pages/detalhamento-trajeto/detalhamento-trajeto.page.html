@@ -1,0 +1,35 @@
+<page-header [pageName]="'Trajeto'" [backButton]="true"></page-header>
+
+<ion-content>
+    
+    <map [state]="featureState" [config]="mapConfig"></map>
+
+    <div class="bottom_panel" *ngIf="(trechosCollection | async) as trechos" [class.disabled]="!detailButtonState.enabled">
+        <div style="position: relative">
+            <div class="bottom_panel_close">
+                <ion-button (click)="detailButtonState.toggle()">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                </ion-button>
+            </div>
+            <trajeto-panel [trechos]="trechos"
+                (onParadaSelected)="onParadaSelected($event)"
+                (onPercursoSelected)="onPercursoSelected($event)"
+                (preverEmbarqueClick)="onClickBtnPreverEmbarque($event)"></trajeto-panel>
+        </div>
+    </div>
+
+    <div class="bottom_panel" [class.disabled]="!embarqueButtonState.enabled">
+        <div style="position: relative">
+            <div class="bottom_panel_close">
+                <ion-button (click)="embarqueButtonState.toggle()">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                </ion-button>
+            </div>
+
+            <embarque-panel [embarqueState]="embarqueState$"
+                (btnVoltarClick)="onClickBtnEmbarqueVoltar()"
+                (btnAlertaClick)="onClickBtnAlerta()"></embarque-panel>
+        </div>
+    </div>
+
+</ion-content>

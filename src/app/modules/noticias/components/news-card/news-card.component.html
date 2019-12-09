@@ -1,0 +1,12 @@
+<ion-card button="true" (click)="clickEvent.emit(news)" [ngClass]="{'unvisited': !news.visited}">
+    <ion-card-header>
+        <ion-card-subtitle>{{ news.noticia.dtPublicacao | toDate | date: 'dd/MM/yyyy HH:mm'}}
+            <ion-icon name="more" class="more_options_icon" (click)="onClickOptions($event)"></ion-icon>
+        </ion-card-subtitle>
+
+        <ion-card-title>{{ news.noticia.titulo }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <p>{{ news.noticia.resumo }}</p>
+    </ion-card-content>
+</ion-card>

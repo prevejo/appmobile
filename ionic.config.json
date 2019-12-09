@@ -1,0 +1,7 @@
+{
+  "name": "prevejo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,25 @@
+<page-header pageName="Parada" [backButton]="true"></page-header>
+
+<ion-content>
+    <div class="page_container">
+        <div class="container_header">
+            <div>
+                <ion-label class="title">Linhas disponíveis</ion-label>
+            </div>
+            <div>
+                <div class="card_parada">
+                    Parada: {{ codParada$ | async }}
+                </div>
+            </div>
+        </div>
+
+        <div class="container_content">
+
+            <linha-list 
+                [linhas]="linhasList"
+                (onLinhaSelecionada)="onLinhaSelecionada($event)"
+                *ngIf="(linhas$ | async) as linhasList"></linha-list>
+
+        </div>
+    </div>
+</ion-content>
