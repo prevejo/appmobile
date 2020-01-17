@@ -1,0 +1,102 @@
+ion-card-content {
+    background-color: #fff;
+    padding: 10px;
+    max-width: 340px;
+    min-width: 300px;
+    padding-bottom: 8px;
+}
+.arrow_button {
+    margin: 0;
+    height: 30px;
+    font-size: 11px;
+}
+
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    ion-card-content {
+        max-width: 500px;
+        min-width: 400px;
+    }
+}
+@media only screen and (max-width: 390px) {
+    ion-card-content {
+        max-width: unset;
+        min-width: unset;
+    }
+}
+
+
+
+.container_list {
+    height: 100%;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+.container_list_content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    background: white;
+    max-height: 300px;
+}
+.container_list_content::-webkit-scrollbar-track {
+	background-color: #F5F5F5;
+}
+.container_list_content::-webkit-scrollbar {
+	width: 5px;
+	background-color: #F5F5F5;
+}
+.container_list_content::-webkit-scrollbar-thumb {
+	background-color: #AAA;
+	border-radius: 5px;
+    background-image: rgba(0, 0, 0, .2);
+}
+.container_list_content ion-row {
+    width: 100%;
+}
+.container_list_bottom {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    line-height: 30px;
+    font-size: 12px;
+    background-color: white;
+}
+.container_list_bottom > span {
+    color: rgb(115, 115, 115);
+}
+
+.linha_numero,
+.linha_descricao {
+    color: #333;
+    font-size: 12px;
+}
+
+
+.card_initial {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+.container_initial {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+}
+.container_initial .initial_msg {
+    font-size: 12px;
+}
+
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    .linha_numero,
+    .linha_descricao {
+        font-size: 13px;
+    }
+    .container_list_bottom,
+    .container_initial .initial_msg {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,69 @@
+<page-header pageName="Veículos {{ setSelecionado ? ' - ' + setSelecionado.name : '' }}" [backButton]="true"></page-header>
+
+<ion-content>
+
+    <map [state]="state.featureState" [config]="mapConfig"></map>
+
+
+    <div class="bottom_panel" [class.disabled]="!registradosButtonState.enabled">
+        <div style="position: relative">
+            <div class="bottom_panel_close">
+                <ion-button (click)="emptyState()">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                </ion-button>
+            </div>
+
+            <registrados-panel
+                [sets]="sets"
+                (onSetSelecionado)="onSetSelecionado($event)"
+                (onClickBtnNovo)="emptyState()">
+            </registrados-panel>
+        </div>
+    </div>
+
+    <div class="bottom_panel" [class.disabled]="!percursosButtonState.enabled">
+        <div style="position: relative">
+            <div class="bottom_panel_close">
+                <ion-button (click)="retailPanel(percursosButtonState)">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                </ion-button>
+            </div>
+
+            <percursos-panel
+                (controlEvent)="onPercursoControlEvent($event)"
+                [currentList]="state.percursoList"
+                (onClickBtnAdd)="openPanel(seletorButtonState)"
+                (onClickBtnRegistro)="onClickBtnRegistro()">
+            </percursos-panel>
+        </div>
+    </div>
+
+    <div class="bottom_panel" [class.disabled]="!seletorButtonState.enabled">
+        <div style="position: relative">
+            <div class="bottom_panel_close">
+                <ion-button (click)="retailPanel(seletorButtonState); openPanel(percursosButtonState)">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                </ion-button>
+            </div>
+
+            <seletor-percurso-panel
+                [currentList]="state.percursoList">
+            </seletor-percurso-panel>
+        </div>
+    </div>
+
+    <div class="bottom_panel" [class.disabled]="!veiculosButtonState.enabled">
+        <div style="position: relative">
+            <div class="bottom_panel_close">
+                <ion-button (click)="onVeiculosPanelBack()">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                </ion-button>
+            </div>
+
+            <veiculos-percurso-panel
+                [percurso]="percursoSelecionadoVeiculos">
+            </veiculos-percurso-panel>
+        </div>
+    </div>
+
+</ion-content>

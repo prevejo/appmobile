@@ -7,6 +7,7 @@ import { ToUpperFirstPipe } from './pipes/toUpperFirst.pipe';
 import { PastTimePipe } from './pipes/pastTime.pipe';
 import { ToDatePipe } from './pipes/toDate.pipe';
 import { ShortPastTimePipe } from './pipes/shortPastTime.pipe';
+import { CutStringPipe } from './pipes/cutString.pipe';
 
 @NgModule({
   imports: [
@@ -18,14 +19,16 @@ import { ShortPastTimePipe } from './pipes/shortPastTime.pipe';
     ToUpperFirstPipe,
     PastTimePipe,
     ToDatePipe,
-    ShortPastTimePipe
+    ShortPastTimePipe,
+    CutStringPipe
   ],
   exports: [
     MapComponent,
     ToUpperFirstPipe,
     PastTimePipe,
     ToDatePipe,
-    ShortPastTimePipe
+    ShortPastTimePipe,
+    CutStringPipe
   ]
 })
 export class SharedModule {}

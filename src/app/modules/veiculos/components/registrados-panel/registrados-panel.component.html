@@ -1,0 +1,29 @@
+<ion-card>
+    <ion-card-header>
+        <ion-card-subtitle>Registrados:</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+        <ion-list class="registrados_list">
+            <ion-item *ngFor="let set of sets" (click)="onSetSelecionado.emit(set)" button>
+                <ion-row>
+                    <ion-col size="auto" class="name_column">
+                        {{ set.name }}
+                    </ion-col>
+                    <ion-col class="linha_column">
+                        {{ set.linhaList() }}
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ion-list>
+
+
+        <div class="bottom_container" style="text-align: right">
+            <div class="right_button_container">
+                <ion-button class="bottom_button" (click)="onClickBtnNovo.emit($event)" size="small">Novo</ion-button>
+            </div>
+        </div>
+
+    </ion-card-content>
+</ion-card>

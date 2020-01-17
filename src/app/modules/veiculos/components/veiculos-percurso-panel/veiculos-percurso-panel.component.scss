@@ -1,0 +1,99 @@
+ion-card-content {
+    background-color: #fff;
+    padding: 10px;
+    max-width: 310px;
+    min-width: 300px;
+    padding-bottom: 8px;
+    padding-top: 5px;
+}
+
+.container_percursos_list {
+    overflow-y: auto;
+    max-height: 350px;
+}
+
+.percursos_list {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.percursos_list ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+}
+.percursos_list ion-item.veiculo_item {
+    --min-height: 35px;
+}
+.percursos_list ion-row {
+    width: 100%;
+}
+.percursos_list ion-row.header_row ion-col {
+    font-size: 13px;
+}
+.percursos_list ion-row.veiculo_row ion-col {
+    font-size: 13px;
+}
+.percursos_list ion-row.veiculo_row ion-col.operadora {
+    font-size: 12px;
+}
+
+
+.back_button_container {
+    flex: 1;
+    text-align: right;
+}
+.back_button ion-button {
+    font-size: 12px;
+    margin: 0;
+}
+.item_card {
+    background-color: #eaeaea;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    line-height: 26px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    font-size: 13px;
+    display: inline-block;
+}
+.partidas_container {
+    line-height: 35px;
+    padding-top: 1px;
+    text-align: right;
+}
+
+
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    ion-card-content {
+        max-width: 400px;
+        min-width: 330px;
+    }
+    .card_empty .empty_msg {
+        font-size: 15px;
+    }
+    .container_percursos_list {
+        max-height: unset;
+    }
+    .item_card {
+        font-size: 15px;
+    }
+    .bottom_container {
+        margin-top: 5px;
+    }
+
+    .percursos_list ion-row.header_row ion-col {
+        font-size: 14px;
+    }
+    .percursos_list ion-row.veiculo_row ion-col {
+        font-size: 14px;
+    }
+    .percursos_list ion-row.veiculo_row ion-col.operadora {
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width: 390px) {
+    ion-card-content {
+        max-width: unset;
+        min-width: unset;
+    }
+}

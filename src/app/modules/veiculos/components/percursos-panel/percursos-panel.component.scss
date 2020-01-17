@@ -1,0 +1,114 @@
+ion-card-content {
+    background-color: #fff;
+    padding: 10px;
+    max-width: 310px;
+    min-width: 300px;
+    padding-bottom: 8px;
+}
+.arrow_button {
+    margin: 0;
+    height: 30px;
+    font-size: 11px;
+}
+
+
+ion-list.percursos_list ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+}
+
+
+.registrado_btn {
+    color: #e4e4e4;
+}
+.registrado_btn.hightligth {
+    color: #ffd31a;
+}
+
+
+.bottom_container {
+    display: flex;
+}
+.right_button_container {
+    flex: 1;
+    text-align: right;
+}
+.bottom_button ion-button {
+    font-size: 12px;
+    margin: 0;
+}
+
+
+.card_empty {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+.card_empty ion-card-content {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+}
+.card_empty .empty_msg {
+    font-size: 13px;
+}
+
+
+.container_percursos_list {
+    overflow-y: auto;
+    max-height: 210px;
+}
+.container_percursos_list ion-list.percursos_list ion-item.selected {
+    --ion-item-background: rgba(0, 0, 0, 0.04);
+}
+.container_percursos_list ion-list.percursos_list ion-item ion-row {
+    width: 100%;
+}
+
+.percurso_field {
+    font-size: 12px;
+}
+.percurso_field.numero_field {
+    font-size: 13px;
+}
+.percurso_field.sentido_field {
+    font-size: 11px;
+}
+.percurso_field.options_field {
+    font-size: 20px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.percurso_column.options_field {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    ion-card-content {
+        max-width: 500px;
+        min-width: 400px;
+    }
+    .card_empty .empty_msg {
+        font-size: 15px;
+    }
+
+    .percurso_field {
+        font-size: 13px;
+    }
+    .percurso_field.numero_field {
+        font-size: 14px;
+    }
+    .percurso_field.sentido_field {
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 390px) {
+    ion-card-content {
+        max-width: unset;
+        min-width: unset;
+    }
+}

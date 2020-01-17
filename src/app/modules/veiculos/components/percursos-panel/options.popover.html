@@ -1,0 +1,16 @@
+<ion-list>
+    <ion-item (click)="model.detalharVeiculos($event); model.popover.dismiss()" button>
+        <ion-icon name="bus"></ion-icon>
+        <ion-label style="margin-left: 5px;">Veículos</ion-label>
+    </ion-item>
+
+    <ion-item (click)="model.remover($event); model.popover.dismiss()" button>
+        <ion-icon name="trash"></ion-icon>
+        <ion-label style="margin-left: 5px;">Remover</ion-label>
+    </ion-item>
+
+    <ion-item (click)="model.detalhar($event); model.popover.dismiss()" button>
+        <ion-icon name="list"></ion-icon>
+        <ion-label style="margin-left: 5px;">Detalhar</ion-label>
+    </ion-item>
+</ion-list>

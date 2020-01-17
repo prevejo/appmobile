@@ -24,6 +24,13 @@ export class PercursoService {
             .pipe(map(resp => resp as GeoJSON.Feature<LineString>));
     }
 
+    obterPercursosByDescricao(descricao: string): Observable<Percurso[]> {
+        descricao = descricao.replace(/\//gi, '%26%2347%3B');
+
+        return this.http.get(this.api + '/percurso/search/' + descricao)
+            .pipe(map(resp => resp as Percurso[]));
+    }
+
     obterPercursosByPercursoId(id: number): Observable<FeatureCollection<LineString, Percurso>> {
         return this.http.get(this.api + '/percurso/collection/' + id)
             .pipe(map(resp => resp as GeoJSON.FeatureCollection<LineString, Percurso>));

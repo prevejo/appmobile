@@ -1,0 +1,50 @@
+<ion-card>
+    <ion-card-content>
+
+        <div class="container_percursos_list">
+            <ion-list class="percursos_list" *ngIf="!currentList.isEmpty(); else empty">
+                <ion-item [ngClass]="{'selected': currentList.isSelected(perc)}"
+                    *ngFor="let perc of currentList.percursos"
+                    (click)="onPercursoSelecionado(perc)" button>
+                    <ion-row>
+                        <ion-col size="auto" class="percurso_column">
+                            <span class="percurso_field numero_field">{{perc.percurso.linha.numero}}</span>
+                        </ion-col>
+                        <ion-col class="percurso_column">
+                            <span class="percurso_field">{{perc.percurso.linha.descricao | cutString: 40}}</span>
+                        </ion-col>
+                        <ion-col size="auto" class="percurso_column">
+                            <span class="percurso_field sentido_field">{{perc.percurso.sentido}}</span>
+                        </ion-col>
+                        <ion-col size="auto" class="percurso_column options_field">
+                            <ion-icon name="more" class="percurso_field options_field" (click)="onClickOptions($event, perc)"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+            </ion-list>
+        </div>
+
+
+        <ng-template #empty>
+            <ion-card class="card_empty">
+                <ion-card-content>
+                    <span class="empty_msg">Adicione percursos para visualizar veículos em operação.</span>
+                </ion-card-content>
+            </ion-card>
+        </ng-template>
+
+
+        <div class="bottom_container" style="text-align: right">
+            <div>
+                <ion-button class="registrado_btn" (click)="onClickBtnRegistro.emit($event)" size="small"
+                    [ngClass]="{'hightligth': currentList.isSetSetup()}" [disabled]="!currentList.isSetSetup() && currentList.isEmpty()">
+                    <ion-icon slot="icon-only" name="star"></ion-icon>
+                </ion-button>
+            </div>
+            <div class="right_button_container">
+                <ion-button class="bottom_button" (click)="onClickBtnAdd.emit($event)" size="small">Adicionar</ion-button>
+            </div>
+        </div>
+    
+    </ion-card-content>
+</ion-card>

@@ -1,0 +1,48 @@
+<ion-card>
+    <ion-card-content>
+
+        <div class="container_percursos_list" *ngIf="veiculos.length; else empty">
+            <ion-list class="percursos_list">
+                <ion-item>
+                    <ion-row class="header_row">
+                        <ion-col size="auto">Numero</ion-col>
+                        <ion-col>Operadora</ion-col>
+                        <ion-col size="auto">Há</ion-col>
+                    </ion-row>
+                </ion-item>
+                <ion-item *ngFor="let veiculo of veiculos" class="veiculo_item"
+                    (click)="onVeiculoSelecionado(veiculo)">
+                    <ion-row class="veiculo_row">
+                        <ion-col size="auto" [style.color]="veiculo.color">
+                            {{ veiculo.numero }}</ion-col>
+                        <ion-col class="operadora">
+                            {{ veiculo.operadora }}
+                        </ion-col>
+                        <ion-col size="auto">
+                            {{ veiculo.data | pastTime }}
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+            </ion-list>
+
+
+            <div class="bottom_container">
+                <div class="partidas_container">
+                    <div class="item_card">
+                        <ion-label><span style="font-weight: bold">{{veiculos.length}}</span> veículos(s)</ion-label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <ng-template #empty>
+            <ion-card class="card_empty">
+                <ion-card-content>
+                    <span class="empty_msg">Nenhum veículo em operação.</span>
+                </ion-card-content>
+            </ion-card>
+        </ng-template>
+    
+    </ion-card-content>
+</ion-card>

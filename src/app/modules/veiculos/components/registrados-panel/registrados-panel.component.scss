@@ -1,0 +1,51 @@
+ion-card-header {
+    background-color: #fff;
+    padding-bottom: 0;
+}
+ion-card-content {
+    background-color: #fff;
+    padding: 10px;
+    max-width: 310px;
+    min-width: 300px;
+    padding-bottom: 8px;
+}
+
+
+ion-list.registrados_list ion-row {
+    width: 100%;
+}
+ion-list.registrados_list ion-item {
+    --min-height: 25px;
+}
+ion-list.registrados_list ion-col.linha_column {
+    font-size: 13px;
+}
+ion-list.registrados_list ion-col.name_column {
+    min-width: 80px;
+}
+
+
+.bottom_container {
+    display: flex;
+}
+.right_button_container {
+    flex: 1;
+    text-align: right;
+}
+.bottom_button ion-button {
+    font-size: 12px;
+    margin: 0;
+}
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+    ion-card-content {
+        max-width: 500px;
+        min-width: 400px;
+    }
+}
+@media only screen and (max-width: 390px) {
+    ion-card-content {
+        max-width: unset;
+        min-width: unset;
+    }
+}

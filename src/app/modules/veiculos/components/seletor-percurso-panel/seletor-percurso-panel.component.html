@@ -1,0 +1,44 @@
+<ion-card>
+    <ion-card-content>
+
+        <search-bar-percurso
+            [(value)]="searchBarValue"
+            [results]="percursosSubject"
+            placeHolder="Pesquisar..."
+            minLength="3">
+        </search-bar-percurso>
+
+
+        <div class="container_list" *ngIf="(percursos$ | async) as percursosList; else initial">
+            <div class="container_list_content" *ngIf="percursosList.length > 0">
+                <ion-list>
+                    <ion-item *ngFor="let percurso of percursosList" (click)="onPercursoSelecionado(percurso)" button>
+                        <ion-row>
+                            <ion-col size="auto">
+                                <span class="linha_numero">{{percurso.linha.numero}}</span>
+                            </ion-col>
+                            <ion-col>
+                                <span class="linha_descricao">{{percurso.linha.descricao}}</span>
+                            </ion-col>
+                            <ion-col size="auto">
+                                <span class="linha_numero">{{percurso.sentido}}</span>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                </ion-list>
+            </div>
+            <div class="container_list_bottom">
+                <span>{{ percursosList.length }} percursos(s)</span>
+            </div>
+        </div>
+
+        <ng-template #initial>
+            <ion-card class="card_initial">
+                <ion-card-content class="container_initial">
+                    <span class="initial_msg">Informe o numero da linha ou parte do seu letreiro.</span>
+                </ion-card-content>
+            </ion-card>
+        </ng-template>
+    
+    </ion-card-content>
+</ion-card>
